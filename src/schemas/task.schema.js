@@ -1,5 +1,7 @@
 const { z } = require("zod");
 
+const validStatuses = ["pending", "completed", "in-progress"];
+
 const addTaskSchema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
 
@@ -8,7 +10,11 @@ const addTaskSchema = z.object({
     .string()
     .datetime({ message: "Invalid due date format. Use YYYY-MM-DD" })
     .min(1, { message: "Due date is required" }),
-  status: z.string().optional(),
+  status: z
+    .enum(validStatuses, {
+      message: `Status must be one of: ${validStatuses.join(", ")}`,
+    })
+    .optional(),
 });
 
 const updateTaskSchema = z.object({
@@ -18,7 +24,11 @@ const updateTaskSchema = z.object({
     .string()
     .datetime({ message: "Invalid due date format. Use YYYY-MM-DD" })
     .optional(),
-  status: z.string().optional(),
+  status: z
+    .enum(validStatuses, {
+      message: `Status must be one of: ${validStatuses.join(", ")}`,
+    })
+    .optional(),
 });
 
 module.exports = {
