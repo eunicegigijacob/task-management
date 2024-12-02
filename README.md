@@ -59,14 +59,71 @@ The project uses **Express.js** as the framework, **PostgreSQL** as the database
 
 4.  Ensure your PostgreSQL database is running and matches the connection details in the `.env` file.
 
----
-
+```
 ## Running the Application
 
-Start the server:
+### Running Locally
+
+To run the application locally, follow these steps:
+
+1. Install dependencies:
 
 ```
-npm start
+
+npm install
+
+```
+
+2\. Make sure your `.env` file is correctly configured with your database and other environment variables.
+
+3. Run the migrations (if you haven't already):
+
+```
+
+npx db-migrate up
+
+```
+
+4\. Start the server in development mode with:
+
+```
+
+npm run start:dev
+
+```
+
+This will start the server with `nodemon` for auto-reloading during development.
+
+### Running with Docker
+
+To run the application with Docker, follow these steps:
+
+1. Build and start the Docker containers:
+
+```
+
+docker-compose up --build
+
+```
+
+This command will build the Docker images and start the app and database containers.
+
+2. The app should now be running at `http://localhost:3000` and the database at `localhost:5432`.
+
+
+```
+
+### Stopping the Docker Containers
+
+To stop the Docker containers, run:
+
+```
+
+docker-compose down
+
+```
+
+This will stop and remove the running containers but keep your data (in the volumes) intact.
 
 ```
 
@@ -77,10 +134,11 @@ The server will run on the port specified in the `.env` file (default: `3000`).
 Verify that the server is running by accessing:
 
 ```
+
 GET /health
 Response: { "message": "Server up" }
 
-```
+````
 
 ---
 
@@ -133,25 +191,26 @@ This project uses **db-migrate** to manage database schema changes.
 
 A typical migration file in the `migrations` folder might look like this:
 
-```
+````
+
 "use strict";
 
 exports.up = async function (db) {
-  return db.createTable("tasks", {
-    id: { type: "int", primaryKey: true, autoIncrement: true },
-    title: { type: "string", notNull: true },
-    description: { type: "string" },
-    due_date: { type: "date", notNull: true },
-    status: { type: "string", notNull: true, defaultValue: "Pending" },
-    created_at: { type: "timestamp", defaultValue: new String("CURRENT_TIMESTAMP") },
-  });
+return db.createTable("tasks", {
+id: { type: "int", primaryKey: true, autoIncrement: true },
+title: { type: "string", notNull: true },
+description: { type: "string" },
+due_date: { type: "date", notNull: true },
+status: { type: "string", notNull: true, defaultValue: "Pending" },
+created_at: { type: "timestamp", defaultValue: new String("CURRENT_TIMESTAMP") },
+});
 };
 
 exports.down = async function (db) {
-  return db.dropTable("tasks");
+return db.dropTable("tasks");
 };
 
-```
+````
 
 ---
 
@@ -183,7 +242,7 @@ exports.down = async function (db) {
 ├── package.json           # Project metadata and dependencies
 ├── package-lock.json      # Locked dependency versions
 └── README.md              # Documentation
-```
+````
 
 ---
 
