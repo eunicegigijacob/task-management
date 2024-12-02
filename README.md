@@ -13,7 +13,6 @@ The project uses **Express.js** as the framework, **PostgreSQL** as the database
 - **CRUD Operations**: Manage tasks (Create, Read, Update, Delete).
 - **Validation**: Request validation with Zod schemas.
 - **Pagination**: Efficiently retrieve tasks with pagination.
-- **Authentication**: Endpoints secured with JWT-based authentication.
 - **Error Handling**: Centralized error-handling middleware.
 - **Database Migrations**: Manage database schema changes using `db-migrate`.
 
@@ -187,14 +186,6 @@ exports.down = async function (db) {
 
 1.  Ensure the application is running.
 2.  Use tools like **Postman** or **cURL** to interact with the endpoints.
-3.  For automated testing (if implemented):
-
-    ```
-    npm test
-
-    ```
-
----
 
 ## API Endpoints
 
@@ -229,18 +220,14 @@ exports.down = async function (db) {
 
 ---
 
-## License
-
-This project is licensed under the **ISC License**. See the `LICENSE` file for details.
-
 ---
 
 ## Contact
 
 For issues or questions, reach out to:
 
-- **Author**: [Your Name]
-- **Email**: [Your Email]
-- **GitHub**: [GitHub Link]
+- **Author**: Eunice Jacob
+- **Email**: jacobeunice40@gmail.com, eunice.gigij@gmail.com
+- **GitHub**: https://github.com/eunicegigijacob
 
 ---
