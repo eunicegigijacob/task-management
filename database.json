@@ -1,11 +1,10 @@
 {
-  "default": "development",
-  "development": {
+  "dev": {
     "driver": "pg",
-    "host": "localhost",
-    "user": "postgres",
-    "password": "younice",
-    "database": "task_management",
-    "port": 5432
+    "host": "${DB_HOST}",
+    "user": "${DB_USER}",
+    "password": "${DB_PASSWORD}",
+    "database": "${DB_NAME}",
+    "port": "${DB_PORT}"
   }
 }
