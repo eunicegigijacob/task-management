@@ -49,6 +49,11 @@ The project uses **Express.js** as the framework, **PostgreSQL** as the database
     PORT=3000
     DATABASE_URL=postgres://username:password@localhost:5432/tasksdb
     JWT_SECRET=your_jwt_secret
+    DB_HOST=your_db_host
+    DB_USER=username
+    DB_PASSWORD=your_password
+    DB_NAME=your_db_name
+    DB_PORT=your_db_port
 
     ```
 
